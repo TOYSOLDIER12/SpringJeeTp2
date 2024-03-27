@@ -8,4 +8,5 @@ public interface ProductManager {
     public Product updateProduct(Product product);
     public boolean deleteProduct(Product product);
     public List<Product> getAllProducts();
+    public Product getProductById(float id);
 }

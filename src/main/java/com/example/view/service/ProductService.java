@@ -19,7 +19,7 @@ public class ProductService implements ProductManager {
         if (product.getPrix() > 0) {
             return productRepository.save(product);
         } else {
-            System.out.println("the price is not valid");
+            System.out.println("the price is lower than 0");
             return null;
         }
     }
@@ -37,5 +37,9 @@ public class ProductService implements ProductManager {
     @Override
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+    @Override
+    public Product getProductById(float id){
+        return productRepository.getById(id);
     }
 }

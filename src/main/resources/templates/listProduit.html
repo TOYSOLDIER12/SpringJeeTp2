@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Index page</title>
+
+</head>
+
+<body>
+<a href="addproduit">Ajouter Produit</a>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Reference</th>
+            <th>Designation</th>
+            <th>Prix</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="produit:${listProduit}">
+            <td th:text="${produit.getId()}"></td>
+            <td th:text="${produit.getDesignation()}"></td>
+            <td th:text="${produit.getPrix()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <form th:action="@{/search}" method="get">
+        <input type="text" name="id" placeholder="Search..." />
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+</body>
+</html>
